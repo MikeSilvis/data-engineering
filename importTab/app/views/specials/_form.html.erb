@@ -1,0 +1,57 @@
+<%= form_for(@special) do |f| %>
+  <% if @special.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@special.errors.count, "error") %> prohibited this special from being saved:</h2>
+
+      <ul>
+      <% @special.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="clearfix">
+	<%= f.label :description %>
+	<div class="input">
+	    <%= f.text_field :description %>
+	</div>
+</div>
+<div class="clearfix">
+	<%= f.label :price %>
+	<div class="input">
+	    <%= f.number_field :price %>
+	</div>
+</div>
+<%= f.fields_for :purchaser do |purchaser_fields| %>
+<div class="clearfix">
+    <%= purchaser_fields.label :count %><br />
+	<div class="input">
+    <%= purchaser_fields.number_field :count %>
+	</div>
+</div>
+<div class="clearfix">
+  	<%= purchaser_fields.label :name, "Purchaser Name" %><br>
+	<div class="input">
+    <%= purchaser_fields.text_field :name %>
+	</div>
+</div>
+<% end %>
+<%= f.fields_for :store do |store_fields| %>
+<div class="clearfix">
+  	<%= store_fields.label :name, "Store Name" %><br>
+	<div class="input">
+    <%= store_fields.text_field :name %>
+	</div>
+</div>
+<div class="clearfix">
+  	<%= store_fields.label :merchant_stores, "Address" %><br>
+	<div class="input">
+    <%= store_fields.text_field :merchant_stores %>
+	</div>
+</div>
+<% end %>
+   <div class="actions">
+	    <%= f.submit %>
+  </div>
+<% end %>

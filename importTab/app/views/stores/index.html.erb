@@ -1,0 +1,19 @@
+<h1>Listing stores</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>ID</th>
+    <th>Stores</th>
+  </tr>
+
+<% @stores.each do |store| %>
+  <tr>
+    <td><%= store.name %></td>
+    <td><%= store.id %></td>
+    <td><%= store.merchant_stores %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
