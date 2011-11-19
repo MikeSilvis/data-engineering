@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111117215422) do
+ActiveRecord::Schema.define(:version => 20111118184304) do
 
   create_table "data_files", :force => true do |t|
     t.datetime "created_at"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(:version => 20111117215422) do
     t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "count"
   end
 
   create_table "specials", :force => true do |t|
@@ -31,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20111117215422) do
     t.integer  "store_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "count"
   end
 
   create_table "stores", :force => true do |t|
@@ -40,5 +40,7 @@ ActiveRecord::Schema.define(:version => 20111117215422) do
     t.string   "merchant_stores"
   end
 
+# Could not dump table "uploads" because of following StandardError
+#   Unknown type 'blog' for column 'file'
 
 end

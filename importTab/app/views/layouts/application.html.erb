@@ -89,6 +89,9 @@
       <div class="content">
         <div class="row">
           <div class="span14">
+		  <% flash.each do |key, value| %>
+		    <%= content_tag(:div, value, :class => "flash #{key}") %>
+		  <% end %>
 				<%= yield %>
           </div>
         </div>

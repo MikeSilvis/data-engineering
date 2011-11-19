@@ -4,7 +4,8 @@
   <tr>
     <th>Name</th>
     <th>ID</th>
-    <th>Stores</th>
+    <th>Location</th>
+    <th>Destroy</th>
   </tr>
 
 <% @stores.each do |store| %>
@@ -12,6 +13,7 @@
     <td><%= store.name %></td>
     <td><%= store.id %></td>
     <td><%= store.merchant_stores %></td>
+    <td><%= link_to 'Destroy', store, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

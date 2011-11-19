@@ -6,25 +6,23 @@
     <th>Description</th>
     <th>Price</th>
     <th>Purchaser</th>
-    <th>Purchaser ID</th>
     <th>Store</th>
     <th>Address</th>
     <th>Count</th>
+    <th>Destroy</th>
   </tr>
 
 <% @specials.each do |special| %>
   <tr>
     <td><%= special.description %></td>
-    <td><%= special.price %></td>
+    <td>$<%= special.price %></td>
     <td><%= special.purchaser.name %></td>
-    <td><%= special.purchaser.id %></td>
     <td><%= special.store.name %></td>
     <td><%= special.store.merchant_stores %></td>
-    <td><%= special.purchaser.count %></td>
+    <td><%= special.count %></td>
+    <td><%= link_to 'Destroy', special, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Special', new_special_path %>
